@@ -14,6 +14,7 @@ import java.util.*;
  **/
 public class Lcwnr {
 
+    // 法一：===================================================时间复杂度O(n)
     public static int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() < 1) {
             return 0;
@@ -34,6 +35,7 @@ public class Lcwnr {
         return res;
     }
 
+    // 法二：思想和法一相同，只是数据结构不同===================时间复杂度O(n)
     public static int lengthOfLongestSubstring1(String s) {
         int n = s.length();
         int res = 0;
@@ -43,7 +45,6 @@ public class Lcwnr {
             if (set.contains(s.charAt(end))) {
                 set.remove(s.charAt(start++));
             } else {
-                System.out.println(s.charAt(end));
                 set.add(s.charAt(end++));
                 res = Math.max(res, end - start);
             }
@@ -59,8 +60,7 @@ public class Lcwnr {
         return res;
     }
 
-    // ========================================================
-
+    // 法三：========================================================时间复杂度O(n^2)
     static int newnum = 0;//定义新的集合的长度
     static int oldnum = 0;//定义旧的集合的长度
 
